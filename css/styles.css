@@ -8,3 +8,6 @@
 .choreResult:hover {
   text-decoration: underline;
 }
+.closer:hover {
+  cursor: pointer;
+}

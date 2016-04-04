@@ -5,10 +5,6 @@ function toDoList(chore, priority) {
   this.priorityName = priority;
 }
 
-toDoList.prototype.chorePriority = function() {
-  return this.choreName;
-}
-
 //User interface logic
 $(document).ready(function() {
   $("form#listID").submit(function(event) {
@@ -19,7 +15,7 @@ $(document).ready(function() {
 
     var newChore = new toDoList(inputtedChore, inputtedPriority);
 
-    $("ul#choreList").append("<li><span class='choreResult'>" + newChore.chorePriority()  + "</span></li>");
+    $("ul#choreList").append("<li><span class='choreResult'>" + newChore.choreName  + "</span>" + "-" + "<span class='closer'>" + '[x]' + "</span></li>");
     $(".choreResult").last().click(function() {
       $("#showList").show();
       $("#showList h2").text(newChore.choreName);
@@ -29,5 +25,11 @@ $(document).ready(function() {
 
     $("input#choreID").val("");
     $("input#priorityID").val("");
+
+    $(".closer").last().click(function() {
+      this.closest('li').remove();
+      $("#showList").hide();
+    });
+
   });
 });
