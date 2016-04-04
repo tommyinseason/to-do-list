@@ -1,0 +1,10 @@
+#showList {
+  display: none;
+}
+.choreResult {
+  cursor: pointer;
+  color: #0088cc;
+}
+.choreResult:hover {
+  text-decoration: underline;
+}
